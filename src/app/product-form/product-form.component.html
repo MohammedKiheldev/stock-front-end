@@ -1,0 +1,26 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="product.name" class="form-control" id="name" name="name" placeholder="Enter your name">
+        <div *ngIf="errors.name" class="alert alert-danger">{{ errors.name }}</div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" [(ngModel)]="product.description" class="form-control" id="description" name="description" placeholder="Enter your description">
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" [(ngModel)]="product.quantity" class="form-control" id="quantity" name="quantity" placeholder="Enter quantity">
+        <div *ngIf="errors.quantity" class="alert alert-danger">{{ errors.quantity }}</div>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" [(ngModel)]="product.price" class="form-control" id="price" name="price" placeholder="Enter price">
+        <div *ngIf="errors.price" class="alert alert-danger">{{ errors.price }}</div>
+      </div>
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

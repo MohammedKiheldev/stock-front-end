@@ -1,0 +1,35 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products | paginate: { itemsPerPage: 4, currentPage: p }">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.price }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="purchaseProduct(product)">Buy</button>
+            <span>&nbsp;</span> <!-- Ajout d'un espace -->
+            <button class="btn btn-secondary" (click)="editProduct(product)">Modifier</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <br>
+    <!-- Pagination Controls -->
+    <pagination-controls class="pagination-bottom-right" (pageChange)="p = $event"></pagination-controls>
+  
+  </div>
+</div>
